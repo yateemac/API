@@ -1,0 +1,1 @@
+﻿Data Source=YATEEMDC2012;Initial Catalog=IFASOFT;Persist Security Info=True;User ID=sa;Password=P@ssw0rd;MultipleActiveResultSets=True
