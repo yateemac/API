@@ -127,6 +127,22 @@ exports.postShelf = (req, res) =>
     });
 };
 
+exports.deleteShelf = (req, res) => 
+{
+    // Validate request
+     console.log(`Fetching RESPONSE`);
+     // create Request object
+     var request = new mssql.Request();
+     // query to the database and get the records
+     const queryStr = `DELETE FROM SHELF WHERE LOCID = '${req.params.locid}' AND RACKID = '${req.params.rackid}' AND SHELFID = '${req.params.shelfid}'`;
+     request.query(queryStr, function (err, recordset) {
+        if (err) console.log(err)
+        else {
+           res.send("Item deleted successfully!");
+        };
+     });
+}
+
 exports.updateShelf = (req, res) =>
 {
      // Validate request
@@ -134,7 +150,7 @@ exports.updateShelf = (req, res) =>
      // create Request object
      var request = new mssql.Request();
      // query to the database and get the records
-     const queryStr = `UPDATE SHELF SET ITEMCODE = '${req.body.itemCode}', ITEMDESC = '${req.body.itemDesc}', ITEMQTY = ${req.body.itemQty}, REMARKS =  '${req.body.remarks}', CATEGORY = '${req.body.category}', ITEMUNITDESCRIPTION = '${req.body.unitdesc}', ITEM_LAST_PURCHASE_DATE = '${req.body.lastpurchasedate}', ITEMCOSTPRICE = ${req.body.cost} WHERE BARCODE = '${req.body.barcode}';`;
+     const queryStr = `UPDATE SHELF SET ITEMCODE = '${req.body.itemCode}', ITEMDESC = '${req.body.itemDesc}', ITEMQTY = ${req.body.itemQty}, REMARKS =  '${req.body.remarks}', CATEGORY = '${req.body.category}', ITEMUNITDESCRIPTION = '${req.body.unitdesc}', ITEM_LAST_PURCHASE_DATE = '${req.body.lastpurchasedate}', ITEMCOSTPRICE = ${req.body.cost} WHERE LOCID = '${req.body.locId}' AND RACKID = '${req.body.rackId}' AND SHELFID = '${req.body.shelfId}';`;
      request.query(queryStr, function (err, recordset) {
         console.log(queryStr);
         request.query(queryStr, function (err, recordset) {

@@ -22,6 +22,9 @@ module.exports = (app) => {
     //7. UPDATE SHELF
     app.post('/api/shelf/update', RackContrllr.updateShelf);
 
+    //8. DELETE ITEM IN SHELF
+    app.get('/api/shelf/delete/:locid/:rackid/:shelfid', RackContrllr.deleteShelf);
+
     //8. GET PRODUCTS
     app.get('/api/shelf/:barcode', RackContrllr.getProducts);
 
