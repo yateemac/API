@@ -50,6 +50,11 @@ require('./Routes/reports.routes.js')(app);
 require('./Routes/racks.routes.js')(app);
 require('./Routes/locations.routes.js')(app);
 require('./Routes/complaints.routes.js')(app);
+require('./Routes/clockin.routes.js')(app);
+require('./Routes/employee.routes.js')(app);
+require('./Routes/leave.routes.js')(app);
+require('./Routes/finance.routes.js')(app);
+require('./Routes/ar.routes.js')(app);
 
 //ENVIRONMENT VARIABLE
 const port = process.env.PORT || 5000;

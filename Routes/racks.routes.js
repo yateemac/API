@@ -30,4 +30,9 @@ module.exports = (app) => {
 
     //9. CHECK PRODUCTS
     app.get('/api/product/:pcode/:year', RackContrllr.checkProduct);
+
+    
+//9. List PRODUCTS
+app.get('/api/productList/:year', RackContrllr.listProduct);
+
 };

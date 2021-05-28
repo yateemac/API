@@ -29,7 +29,7 @@ exports.getUser = (req, res) =>
      // create Request object
      var request = new mssql.Request();
      // query to the database and get the records
-     const queryStr = `SELECT USERCODE, PASSWORD, FIRSTNAME, LASTNAME, USERCLASS, CONTACTNO FROM GDUSERS WHERE USERCODE = '${req.params.username}';`;
+     const queryStr = `SELECT USERCODE, PASSWORD, FIRSTNAME, LASTNAME, USERCLASS, CONTACTNO, EMPNO FROM GDUSERS WHERE USERCODE = '${req.params.username}';`;
      request.query(queryStr, function (err, recordset) {
          if (err) console.log(err)
          else {

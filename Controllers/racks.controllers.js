@@ -205,3 +205,27 @@ exports.getProducts = (req, res) =>
          };
      });
 }
+
+
+// get all product
+exports.listProduct = (req, res) => 
+{
+    // Validate request
+     console.log(`Fetching RESPONSE`);
+     // create Request object
+     var request = new mssql.Request();
+     // query to the database and get the records
+     const queryStr = `SELECT * FROM VWPRODUCT WHERE YEAR = '${req.params.year}';`;
+     request.query(queryStr, function (err, recordset) {
+         if (err) console.log(err)
+         else {
+             if (recordset.recordset.toString() == '') {
+                 res.send('Oops!!! List not found...');
+             }
+             else {
+                 // Send records as response
+                 res.send(recordset);
+             }
+         };
+     });
+}
